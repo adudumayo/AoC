@@ -1,3 +1,4 @@
+appearances = 0
 row1 = []
 row2 = []
 
@@ -13,3 +14,11 @@ with open('puzzleInput.txt', 'r') as file:
 
 row1.sort()
 row2.sort()
+
+for i in range(len(row1)):
+    print("First is " + str(row1[i]))
+    for j in range(len(row2)):
+        if row2[j] == row1[i]:
+            appearances = appearances + 1
+    print(appearances)
+    appearances = 0
