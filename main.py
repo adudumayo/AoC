@@ -1,3 +1,4 @@
+sumDistance = 0
 row1 = []
 row2 = []
 
@@ -14,6 +15,8 @@ with open('puzzleInput.txt', 'r') as file:
 row1.sort()
 row2.sort()
 
-print(row1)
-print()
-print(row2)
+for i in range(len(row1)):
+    distance = abs(row1[i] - row2[i])
+    sumDistance = sumDistance + distance
+
+print(sumDistance)
