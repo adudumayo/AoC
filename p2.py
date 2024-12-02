@@ -1,4 +1,6 @@
 appearances = 0
+simScore = 0
+score = 0
 row1 = []
 row2 = []
 
@@ -16,9 +18,12 @@ row1.sort()
 row2.sort()
 
 for i in range(len(row1)):
-    print("First is " + str(row1[i]))
     for j in range(len(row2)):
         if row2[j] == row1[i]:
             appearances = appearances + 1
-    print(appearances)
+
+    score = row1[i] * appearances
+    simScore = simScore + score
     appearances = 0
+
+print(simScore)
