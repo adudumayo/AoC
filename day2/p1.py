@@ -1,7 +1,7 @@
 import time
 
 safeCount = 0
-levels = []
+report = []
 loopBreaked = False
 
 start_time = time.time()
@@ -28,22 +28,26 @@ for line in lines:
     values = line.split(" ")
 
     for i in range(len(values)):
-        levels.append(int(values[i]))
+        report.append(int(values[i]))
 
-    if listIsAscending(levels) or listIsDescending(levels) and listIsASet(levels):
-        print(levels)
-        for i in range(len(levels)-1):
-            diff = abs(levels[i] - levels[i+1])
+    if listIsAscending(report) or listIsDescending(report) and listIsASet(report):
+        print(report)
+        for i in range(len(report)-1):
+            diff = abs(report[i] - report[i+1])
 
             if (diff < 1 or diff > 3):
                 loopBreaked = True
                 break
 
         if loopBreaked:
-            safeCount += 1
+            report = []
             loopBreaked = False
+            continue
+        else:
+            print("SAFE")
+            safeCount += 1
 
-    levels = []
+    report = []
 
 print(safeCount)
 
